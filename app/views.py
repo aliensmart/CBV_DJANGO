@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from django.views.generic import View, TemplateView
+from django.views.generic import View, TemplateView, ListView, DetailView
+from . import models
 
 
 # Create your views here.
@@ -11,3 +12,10 @@ from django.views.generic import View, TemplateView
 #         context = super().get_context_data(**kwargs)
 #         context['injection'] = 'Basic injection'
 #         return context
+
+class SchoolListView(ListView):
+    model = models.School
+
+class SchoolDetailView(DetailView):
+    model = models.School
+    template_name = 'app/templates/app/schooldetails.html'
